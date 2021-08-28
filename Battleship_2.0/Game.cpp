@@ -82,7 +82,7 @@ void Game::run(bool mask1, bool mask2, string name1, string name2)
 		}
 		Sleep(1000);
 		system("cls");
-	} while (player1->hasLivingShips() && player2->hasLivingShips() || !stop);
+	} while ((player1->hasLivingShips() && player2->hasLivingShips()) && !stop);
 }
 
 int Game::getWinner()
