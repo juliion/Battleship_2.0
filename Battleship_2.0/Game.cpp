@@ -65,19 +65,19 @@ void Game::run(bool mask1, bool mask2, string name1, string name2)
 		printer->printBattle(player1->getField(), player2->getField(), mask1, mask2, name1, name2);
 		if (opField->isTypeCell(attackedCell->getX(), attackedCell->getY(), hit))
 		{
-			printer->printTextEndl("Попадание!");
+			printer->printTextEndl("Hit!");
 			Ship* attackedShip = opField->getShip(attackedCell);
 			attackedShip->hurt(attackedCell);
 			if (!attackedShip->checkLive())
 			{
 				attackedShip->kill();
-				printer->printTextEndl("Корабль убит!");
+				printer->printTextEndl("Killed!");
 				opField->markAround(attackedShip, miss);
 			}
 		}
 		else
 		{
-			printer->printTextEndl("Промах!");
+			printer->printTextEndl("Missed!");
 			changeShooter();
 		}
 		Sleep(1000);

@@ -7,9 +7,9 @@ void UserVsCompGameUI::userPlacement()
 	GamePrinter* printer = GamePrinter::getInstance();
 	do
 	{
-		printer->printTextEndl("Выберете, как вы хотите расставить свои корабли:");
-		printer->printTextEndl("1 - рандомно");
-		printer->printTextEndl("2 - вручную");
+		printer->printTextEndl("Choose how you want to arrange your ships:");
+		printer->printTextEndl("1 - randomly");
+		printer->printTextEndl("2 - manually");
 		cin >> placementType;
 		system("cls");
 	} while (placementType < 1 || placementType > 2);
@@ -23,9 +23,9 @@ void UserVsCompGameUI::start()
 	GamePrinter* printer = GamePrinter::getInstance();
 	do
 	{
-		printer->printTextEndl("Выберете уровень сложности: ");
-		printer->printTextEndl("1 - легко");
-		printer->printTextEndl("2 - сложно");
+		printer->printTextEndl("Choose a level of difficulty: ");
+		printer->printTextEndl("1 - easy");
+		printer->printTextEndl("2 - difficult");
 		cin >> diffLevel;
 		system("cls");
 	} while (diffLevel < 1 || diffLevel > 2);
@@ -39,19 +39,19 @@ void UserVsCompGameUI::start()
 	do
 	{
 		userPlacement();
-		printer->printTextEndl("Введите 1, чтобы поменять расположение");
-		printer->printTextEndl("или любую другую цифру, чтобы продолжить");
+		printer->printTextEndl("Enter 1 to change the location");
+		printer->printTextEndl("or any other digit to continue");
 		cin >> change;
 		system("cls");
 	} while (change == 1);
-	game->run(false, true, "Вы", "Компьютер");
+	game->run(false, true, "You", "Computer");
 	int idWinner = game->getWinner();
 	printer->printColorText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", magenta);
 	printer->printTextEndl("");
 	switch (idWinner)
 	{
-		case first: printer->printTextEndl("    Вы выиграли!!"); break;
-		case second: printer->printTextEndl("    Компьютер победил!!"); break;
+		case first: printer->printTextEndl("    You won"); break;
+		case second: printer->printTextEndl("    Computer won"); break;
 	}
 	printer->printColorText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", magenta);
 	printer->printTextEndl("");
@@ -63,17 +63,17 @@ void CompVsCompGameUI::start()
 	GamePrinter* printer = GamePrinter::getInstance();
 	do
 	{
-		printer->printTextEndl("Выберете уровень сложности для первого компьютера: ");
-		printer->printTextEndl("1 - легко");
-		printer->printTextEndl("2 - сложно");
+		printer->printTextEndl("Choose a level of difficulty for 1 computer: ");
+		printer->printTextEndl("1 - easy");
+		printer->printTextEndl("2 - difficult");
 		cin >> diffLevel1;
 		system("cls");
 	} while (diffLevel1 < 1 || diffLevel1 > 2);
 	do
 	{
-		printer->printTextEndl("Выберете уровень сложности для второго компьютера: ");
-		printer->printTextEndl("1 - легко");
-		printer->printTextEndl("2 - сложно");
+		printer->printTextEndl("Choose a level of difficulty for 2 computer: ");
+		printer->printTextEndl("1 - easy");
+		printer->printTextEndl("2 - difficult");
 		cin >> diffLevel2;
 		system("cls");
 	} while (diffLevel2 < 1 || diffLevel2 > 2);
@@ -98,14 +98,14 @@ void CompVsCompGameUI::start()
 	}
 	game->placePlayerShips(first, random);
 	game->placePlayerShips(second, random);
-	game->run(true, true, "Компьютер №1", "Компьютер №2");
+	game->run(true, true, "Computer 1", "Computer 2");
 	int idWinner = game->getWinner();
 	printer->printColorText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", magenta);
 	printer->printTextEndl("");
 	switch (idWinner)
 	{
-	case first: printer->printTextEndl("    Первый компьютер победил"); break;
-	case second: printer->printTextEndl("    Второй компьютер победил"); break;
+	case first: printer->printTextEndl("    Computer 1 won"); break;
+	case second: printer->printTextEndl("    Computer 2 won"); break;
 	}
 	printer->printColorText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", magenta);
 	printer->printTextEndl("");

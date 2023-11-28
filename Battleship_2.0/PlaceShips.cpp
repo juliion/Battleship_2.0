@@ -72,12 +72,12 @@ void PlaceManually::setCells(Ship* ship)
 	int lengthShip = ship->getLength();
 	GamePrinter* printer = GamePrinter::getInstance();
 	printer->printField(field, false);
-	printer->printTextEndl("Разместите корабль длинной: " + std::to_string(lengthShip));
+	printer->printTextEndl("Place a ship with length: " + std::to_string(lengthShip));
 	do
 	{
 		do
 		{
-			printer->printText("Введите начальные координаты: ");
+			printer->printText("Enter the starting coordinates: ");
 			cin >> y0 >> X;
 			x0 = field->convertX(X);
 			y0--;
@@ -86,11 +86,11 @@ void PlaceManually::setCells(Ship* ship)
 		{
 			do
 			{
-				printer->printTextEndl("Ввыберете направление розмищения:");
-				printer->printTextEndl("1 - вверх");
-				printer->printTextEndl("2 - вниз");
-				printer->printTextEndl("3 - влево");
-				printer->printTextEndl("4 - вправо");
+				printer->printTextEndl("Choose a direction:");
+				printer->printTextEndl("1 - up");
+				printer->printTextEndl("2 - down");
+				printer->printTextEndl("3 - left");
+				printer->printTextEndl("4 - right");
 				cin >> direction;
 			} while (direction < 1 || direction > 4);
 		}
@@ -109,9 +109,9 @@ void PlaceManually::setCells(Ship* ship)
 		maxX = x0 > endX ? x0 : endX;
 		maxY = y0 > endY ? y0 : endY;
 		if (!field->borderCheck(x0, y0) || !field->borderCheck(endX, endY))
-			printer->printTextEndl("Корабль выходит за границы! Выберете другое напрaвление!");
+			printer->printTextEndl("The ship is out of bounds! Choose another direction!");
 		else if (!placeCheck(minY, minX, maxY, maxX))
-			printer->printTextEndl("Неправельное расположение!");
+			printer->printTextEndl("Wrong location!");
 	} while (!field->borderCheck(x0, y0) || !field->borderCheck(endX, endY) || !placeCheck(minY, minX, maxY, maxX));
 	system("cls");
 	for (int i = minY; i <= maxY; i++)

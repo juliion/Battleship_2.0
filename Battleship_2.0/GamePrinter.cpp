@@ -70,17 +70,17 @@ void GamePrinter::printBattle(Field* f1, Field* f2, bool mask1, bool mask2, stri
 {
 	printColorText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", cyan);
 	printTextEndl("");
-	printTextEndl("  Поле №1: " + name1 + "(осталось кораблей: " + std::to_string(f1->countAliveShips()) + ")     Поле №2: " + name2 + "(осталось кораблей: " + std::to_string(f2->countAliveShips()) + ")");
+	printTextEndl("  Field 1: " + name1 + "(ships: " + std::to_string(f1->countAliveShips()) + ")     Field 2: " + name2 + "(ships: " + std::to_string(f2->countAliveShips()) + ")");
 	printColorText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", cyan);
 	printTextEndl("");
 	printTextEndl("");
-	printTextEndl("  Поле №1");
+	printTextEndl("  Field 1");
 	printColorText("-----------", cyan);
 	printTextEndl("");
 	printField(f1, mask1);
 	printTextEndl("");
 	printTextEndl("");
-	printTextEndl("  Поле №2");
+	printTextEndl("  Field 2");
 	printColorText("-----------", cyan);
 	printTextEndl("");
 	printField(f2, mask2);

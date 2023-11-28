@@ -39,11 +39,11 @@ Cell* User::atack(Field* opponentField)
 	char X;
 	do
 	{
-		printer->printColorText("                               |> Сдаться - введите -1s", white);
+		printer->printColorText("                               |> Give up -1s", white);
 		printer->printTextEndl("");
 		printer->printColorText("                               | ", white);
 		printer->printTextEndl("");
-		printer->printTextEndl("Стреляйте или сдавайтесь!");
+		printer->printTextEndl("Shoot!");
 		cin >> y >> X;
 		x = opponentField->convertX(X);
 		y--;

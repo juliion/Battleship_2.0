@@ -13,9 +13,9 @@ void mainMenu()
 	GamePrinter* printer = GamePrinter::getInstance();
 	do
 	{
-		printer->printTextEndl("Выберете режим игры:");
-		printer->printTextEndl("1 - человек-компьютер");
-		printer->printTextEndl("2 - компьютер-компьютер");
+		printer->printTextEndl("Select a game mode:");
+		printer->printTextEndl("1 - human-computer");
+		printer->printTextEndl("2 - computer-computer");
 		cin >> gameMode;
 		system("cls");
 	} while (gameMode < 1 || gameMode > 2);
@@ -35,7 +35,7 @@ int main()
 	do
 	{
 		mainMenu();
-		printer->printTextEndl("Введите 1, чтобы начать игру заново");
+		printer->printTextEndl("Enter 1 to open menu");
 		cin >> cont;
 	} while (cont == 1);
 	return 0;
